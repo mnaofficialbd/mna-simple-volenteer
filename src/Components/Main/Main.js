@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Activity from '../Activity/Activity';
+import Header from '../Header/Header';
 import "./Main.css"
 
 const Main = () => {
@@ -12,7 +13,6 @@ const Main = () => {
     }, [])
     return (
         <div>
-            <h2>This is Main</h2>
             <h4>Volunteers Activities: {volunteers.length}</h4>
             <div className='activity-container'>
             {
