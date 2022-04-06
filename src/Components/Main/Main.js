@@ -1,26 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import useVolunteers from '../../hooks/useVolunteers';
 import Activity from '../Activity/Activity';
-import Header from '../Header/Header';
 import "./Main.css"
 
 const Main = () => {
-    const [volunteers, setVolunteers] = useState([]);
+    const [volunteers] = useVolunteers();
 
-    useEffect(() => {
-        fetch('data.json')
-            .then(res => res.json())
-            .then(data => setVolunteers(data))
-    }, [])
+    const handleSearchChange = (event) => {
+        console.log(event.target.value);
+    }
     return (
         <div>
             <h4>Volunteers Activities: {volunteers.length}</h4>
+            <div style={{ 'margin': '20px' }}>
+                <input onChange={handleSearchChange} type="text" placeholder='Search' />
+            </div>
             <div className='activity-container'>
-            {
-                volunteers.map(activity=><Activity
-                key={activity.taskId}
-                activity={activity}
-                ></Activity>)
-            }
+                {
+                    volunteers.map(activity => <Activity
+                        key={activity.taskId}
+                        activity={activity}
+                    ></Activity>)
+                }
             </div>
         </div>
     );
