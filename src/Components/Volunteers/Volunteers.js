@@ -3,7 +3,7 @@ import useVolunteers from '../../hooks/useVolunteers';
 import Activity from '../Activity/Activity';
 
 const Volunteers = () => {
-   const [volunteers, setVolunteers] =useVolunteers();
+   const [volunteers] =useVolunteers();
     return (
         <div>
             <h2>Volunteers</h2>
